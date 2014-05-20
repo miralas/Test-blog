@@ -61,6 +61,14 @@ class ArticlesController < ApplicationController
     end
   end
 
+  def serch_by_relevant
+  end
+
+  def find_articles
+    set_filter_vars(search_params[:rating_from], search_params[:rating_to], search_params[:date])
+    @articles = Article.where(rating: @rating_from..@rating_to, created_at: @article_date.beginning_of_day..@article_date.end_of_day)
+  end
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_article
@@ -72,4 +80,13 @@ class ArticlesController < ApplicationController
       params.require(:article).permit(:title, :content, :rating, :category_id, :author_id)
     end
 
+    def search_params
+      params.require(:find_articles).permit(:rating_from, :rating_to, :date)
+    end
+
+    def set_filter_vars rating_from, rating_to, date
+      @rating_from = rating_from.to_f
+      @rating_to = rating_to.to_f
+      @article_date = date.to_date
+    end
 end

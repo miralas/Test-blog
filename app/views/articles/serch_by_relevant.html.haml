@@ -1,0 +1,6 @@
+= form_for :find_articles, remote: true do |f|
+	%div
+		= raw "Article rating from: #{f.select :rating_from, options_for_select((1..5).step(1))} to: #{f.select :rating_to,   options_for_select((1..5).step(1))}"
+		= raw "Date: #{f.date_field :date, value: Date.today.strftime("%d.%m.%Y")}"
+		= submit_tag "Find articles"
+#articles
