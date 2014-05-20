@@ -27,4 +27,7 @@ test:
 #   sqlite3://myuser:mypass@localhost/full/path/to/somedatabase
 #
 production:
-  url: <%= ENV["DATABASE_URL"] %>
+  adapter: sqlite3
+  database: db/production.sqlite3
+  pool: 5
+  timeout: 5000
