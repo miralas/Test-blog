@@ -1,0 +1,12 @@
+%p#notice= notice
+
+%p
+  %b Login:
+  = @author.login
+%p
+  %b Ip:
+  = @author.ip
+
+= link_to 'Edit', edit_author_path(@author)
+\|
+= link_to 'Back', authors_path
