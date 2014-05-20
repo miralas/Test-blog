@@ -9,7 +9,10 @@ class AuthorsController < ApplicationController
 
   # GET /authors/1
   # GET /authors/1.json
+  def show
   end
+
+  # GET /authors/new
   def new
     @author = Author.new
   end
@@ -57,6 +60,17 @@ class AuthorsController < ApplicationController
       format.json { head :no_content }
     end
   end
+
+  def group_authors
+    ip_list = Author.group(:ip).having("count(ip) > 1").map(&:ip)
+    @groups = []
+    ip_list.each do |ip|
+      author = {}
+      author[ip] = Author.select(:id, :login).where(ip: ip).to_a
+      @groups << author
+    end
+  end
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_author

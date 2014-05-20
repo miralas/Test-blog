@@ -1,0 +1,8 @@
+- if !@groups.empty?
+	- @groups.each do |ip_hash|
+		%h3= ip_hash.keys.first
+		%ul
+		- ip_hash.values.first.each do |author|
+			%li= author.login
+- else
+	%h3= "There are no mulpiple authors on single IP"
