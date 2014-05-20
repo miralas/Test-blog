@@ -1,0 +1,14 @@
+!!!
+%html
+	%head
+		%title TestBlog
+		= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true
+		= javascript_include_tag 'application', 'data-turbolinks-track' => true
+		= csrf_meta_tags
+	%body
+		#content
+			#menu
+				= link_to 'Home', index_path
+				= link_to 'Serach Article', search_path
+				= link_to 'Authors grouped by IP', group_authors_path
+			= yield
