@@ -66,7 +66,7 @@ class AuthorsController < ApplicationController
     @groups = []
     ip_list.each do |ip|
       author = {}
-      author[ip] = Author.select(:id, :login).where(ip: ip).to_a
+      author[ip] = Author.select(:login).where(ip: ip).to_a
       @groups << author
     end
   end
