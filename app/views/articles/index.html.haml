@@ -9,8 +9,7 @@
         .author_info
           = 'Created by ' + article.author.login + ' on ' + article.created_at.strftime("%d %B %Y") + ' from ' + article.author.ip 
           %span.rating
-            = 'Current rating: ' + sprintf("%.2f", article.rating).to_s + '; Summary count of comments: ' + article.comments.count.to_s
-          = article.category.title
+            = 'Current rating: ' + sprintf("%.2f", article.rating).to_s + '; Summary count of comments: ' + article.comments.count.to_s + '; Category: ' + article.category.title
 
       %br
 
