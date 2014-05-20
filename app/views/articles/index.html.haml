@@ -1,0 +1,19 @@
+%h3= "Top of Articles"
+#articles
+  - if !@articles.empty?
+    - @articles.each do |article|
+      .article_preview
+        %h2= link_to article.title, article
+        %p= article.content
+        %hr
+        .author_info
+          = 'Created by ' + article.author.login + ' on ' + article.created_at.strftime("%d %B %Y") + ' from ' + article.author.ip 
+          %span.rating
+            = 'Current rating: ' + sprintf("%.2f", article.rating).to_s + '; Summary count of comments: ' + article.comments.count.to_s
+          = article.category.title
+
+      %br
+
+    = link_to 'New Article', new_article_path, remote: true, id: 'new_article'
+  - else
+    %h3= 'Articles not found'

@@ -1,0 +1,11 @@
+%p#notice= notice
+
+%h2= @article.title
+%span= "Rating: #{sprintf "%.2f", @article.rating}; Author: #{@article.author.login} (ip: #{@article.author.ip}); Category: #{@article.category.title}"
+%p
+  = @article.content
+
+= link_to 'Back', articles_path
+%hr
+#comments
+  = render template: 'comments/index'

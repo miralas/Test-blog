@@ -1,0 +1,22 @@
+= form_for @article, remote: true do |f|
+  - if @article.errors.any?
+    #error_explanation
+      %h2= "#{pluralize(@article.errors.count, "error")} prohibited this article from being saved:"
+      %ul
+        - @article.errors.full_messages.each do |msg|
+          %li= msg
+
+  .field
+    = f.label :title
+    = f.text_field :title
+  .field
+    = f.label :content
+    = f.text_area :content
+  .field
+    = f.label :category
+    = f.collection_select :category_id, Category.all, :id, :title
+  .field
+    = f.label :author
+    = f.collection_select :author_id, Author.all, :id, :login
+  .actions
+    = f.submit 'Save'
