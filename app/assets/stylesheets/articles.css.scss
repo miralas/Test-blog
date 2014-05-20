@@ -1,3 +1,32 @@
 // Place all the styles related to the Articles controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+body {
+	background: image_url('bedge_grunge.png');
+	#content {
+		margin: 30px;
+		background-color: white;
+		border: 2px solid grey;
+		border-radius: 4px;
+		padding: 20px;
+		#menu {
+			padding: 10px;
+			border-bottom: 1px solid grey;
+			margin-bottom: 10px;
+			a {
+				font-size: 1.5em;
+				padding: 5px 10px;
+				line-height: 100%;
+				text-decoration: none;
+			}
+		}
+		.article_preview {
+			padding: 10px 0px;
+			border: 1px solid grey;
+		}
+		#comments {
+			width: 50%;
+		}
+	}
+}
