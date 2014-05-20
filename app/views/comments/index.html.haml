@@ -1,0 +1,8 @@
+%h3 Listing comments
+- @comments.each do |comment|
+    %p= comment.content
+    %p= "This article mark: #{comment.mark}. Comment created by #{comment.author.login} (ip: #{comment.author.ip}) on #{comment.created_at.strftime("%d %B %Y")}"
+    %hr
+%br
+
+= link_to 'New comment', new_article_comment_path(@article), remote: true, id: :new_comment if @article
