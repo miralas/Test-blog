@@ -24,7 +24,7 @@ Category.create(categories).each do |category|
 end
 
 Author.delete_all
-rand(20..80).times do
+rand(200..800).times do
   author = Author.create({
           login: ('a'..'z').to_a.shuffle.first(rand(5..9)).join,
           ip: "#{rand(255)}.#{rand(255)}.#{rand(255)}.#{rand(255)}"})
@@ -34,7 +34,7 @@ puts "#{Author.count} authors succesfully created!"
 
 Article.delete_all
 puts "Default articles: "
-rand(1_000..2_000).times do
+rand(1_000_000..2_000_000).times do
   article = Article.create({
           title: ['Mersedes', 'Audi', 'Apple', 'Acer', 'Health', 'Battle-Tank', 'Basketbal'].sample,
           content: ['The best or nothing', 'Nice car', 'Best computers', 'Good computers', 'Devastating power', 'Active sport'].sample,
@@ -48,7 +48,7 @@ puts "#{Article.count} articles succesfully created!"
 
 Comment.delete_all
 puts "Default comments: "
-rand(2_000..4_000).times do
+rand(200_000..400_000).times do
   comment = Comment.create({
                 article: Article.all.sample,
                 content: ('a'..'z').to_a.shuffle.first(rand(40..100)).join,
