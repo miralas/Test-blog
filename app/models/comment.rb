@@ -11,4 +11,9 @@ class Comment < ActiveRecord::Base
 		article.save
   end
 
+  def sum_rating article
+		rating = Comment.where(article_id: article.id).average(:mark)
+		article.rating = rating if rating
+		article.save
+  end
 end

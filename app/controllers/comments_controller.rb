@@ -31,7 +31,7 @@ class CommentsController < ApplicationController
     @comment.article = @article
     respond_to do |format|
       if @comment.save
-        # @comment.sum_rating(@article)
+        @comment.sum_rating(@article)
         format.html { redirect_to @comment, notice: 'Comment was successfully created.' }
         format.js  { render action: 'create' }
       else
