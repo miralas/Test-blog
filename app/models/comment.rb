@@ -5,7 +5,7 @@ class Comment < ActiveRecord::Base
 	validates_presence_of :content
 	validates_presence_of :mark
 
-  after_validation on: :create do
+  after_validation after: :create do
 		rating = Comment.where(article_id: article.id).average(:mark)
 		article.rating = rating if rating
 		article.save

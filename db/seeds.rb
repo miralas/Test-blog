@@ -34,7 +34,7 @@ puts "#{Author.count} authors succesfully created!"
 
 Article.delete_all
 puts "Default articles: "
-rand(5_000..6_000).times do
+rand(3_000..4_000).times do
   article = Article.create({
           title: ['Mersedes', 'Audi', 'Apple', 'Acer', 'Health', 'Battle-Tank', 'Basketbal'].sample,
           content: ['The best or nothing', 'Nice car', 'Best computers', 'Good computers', 'Devastating power', 'Active sport'].sample,
@@ -48,7 +48,7 @@ puts "#{Article.count} articles succesfully created!"
 
 Comment.delete_all
 puts "Default comments: "
-rand(10_000..12_000).times do
+rand(4_000..5_000).times do
   comment = Comment.create({
                 article: Article.all.sample,
                 content: ('a'..'z').to_a.shuffle.first(rand(40..100)).join,
