@@ -11,7 +11,7 @@
 		= f.text_area :content
 	.field
 		= f.label :mark
-		= f.number_field :mark
+		= f.select :mark, options_for_select((1..5).step(1))
 	.field
 		= f.label :author
 		= f.collection_select :author_id, Author.all, :id, :login
